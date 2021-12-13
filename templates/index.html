@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1.0">
+  <title>Upload video</title>
+  <link href="https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700" rel="stylesheet">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+
+<style>
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+h2{
+    text-align: left;
+    display: block;
+  font-size: 3em;
+  margin-top: 1.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  }
+
+
+
+</style>
+
+<body >
+  <!-- <div class="d-flex justify-content-center"> -->
+
+  <h2>Select a video to upload</h2>
+
+
+<p>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+  {% endwith %}
+</p>
+{% if filename %}
+  <div style="width:700px; margin:0 auto;">
+    <video width="720" height = "480" controls="controls" preload="preload">
+      <source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+    </video>
+  </div>
+{% endif %}
+  <div style="width:500px; margin:0 auto;">
+
+         <div class="col-sm-6 form">
+
+                    <form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+    <p>
+      <input type="file" acccept= "video/*" name="file" autocomplete="off" required>
+    </p>
+    </dl>
+    <p>
+    <input type="submit" value="Upload">
+    
+  </p>
+  
+</form>
+</div>
+
+</div>
+
+
+<div style="width:500px; margin:0 auto;">
+     <a href="view">
+            <button class="btn btn-success">Proceed</button>
+        </a>
+      </div>
+
+
+                  <!-- </div> -->
+
+                <!-- </div> -->
+ <footer>
+      <p>
+       
+   </footer> 
+
+<!-- </div> -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
